@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs Example</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    #content-container {
+      position: relative;
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 60px;
+    }
+
+    .tabs-container {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      z-index: 1000;
+      background-color: #121212;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .tab-button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: color 0.3s;
+      font-size: 16px;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 8px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .tab-button.active,
+    .tab-button:hover {
+      color: #06cbf8;
+    }
+
+    .tab-underline {
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #06cbf8;
+      transition: left 0.3s, width 0.3s;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 0.3s;
+      background-color: #121212;
+      color: #ffffff;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: slideIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .accordion {
+      margin-top: 20px;
+    }
+
+    .accordion-item {
+      margin-bottom: 10px;
+    }
+
+    .accordion-header {
+      background-color: #2c2c2c;
+      border: none;
+      outline: none;
+      padding: 14px;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      border-radius: 8px;
+    }
+
+    .accordion-header:hover {
+      background-color: #444;
+    }
+
+    .accordion-header.active {
+      border: none;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 14px;
+      background-color: transparent;
+      border-top: none;
+      border-radius: 8px;
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s;
+      color: #06cbf8;
+    }
+
+    .accordion-header.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content-container">
+    <div class="tabs-container">
+      <div class="tabs">
+        <button class="tab-button active" data-target="tl-dr">The TL;DR</button>
+        <button class="tab-button" data-target="short-form">Short Form</button>
+        <button class="tab-button" data-target="long-form">Long Form</button>
+      </div>
+      <div class="tab-underline"></div>
+    </div>
+
+    <div id="tl-dr" class="tab-content active">
+      <h2>The TL;DR</h2>
+      <p>On September 19, 2023, we issued a bold price target for Tesla ($TSLA) based on our analysis of its potential transformation into a trillion-dollar software company. We pegged our target at $340, forecasting a 30% upside from the then-current price of $262, with a target date set for Q3 2024. While we may have been early with our projections, our confidence in Tesla's strategic direction remains unwavering.</p>
+      <p>Tesla's journey has been marked by its ambitious goals and innovative strides, particularly with the launch of the Dojo supercomputer. This advanced AI-specific hardware positions Tesla as a formidable force in visual computing, potentially revolutionizing various industries beyond automotive. Despite the challenges in the automotive sector, including competitive pressures and margin compressions, Tesla's ventures into AI and software present a significant growth avenue that will drive substantial shareholder value.</p>
+      <p>Adding to the positive momentum, Tesla shares recently jumped after the company posted second-quarter vehicle production and delivery numbers that exceeded analyst expectations. For Q2 2024, Tesla reported total deliveries of 443,956 vehicles and a total output of 410,831 cars. Analysts had expected deliveries to hit 439,000 for the quarter, according to a consensus of estimates compiled by FactSet StreetAccount. Although the total number of deliveries in Q2 fell 4.8% from 466,140 a year earlier, it represented a robust 14.8% increase from the first quarter.</p>
+      <p>As we reflect on our initial optimism, it's clear that the foundational elements of our thesis remain intact. We anticipated the market underestimating Tesla's potential outside its core auto business, and recent developments have only reinforced our view. Although the immediate automotive earnings faced headwinds, Tesla's advancements in AI and supercomputing have opened up new, lucrative opportunities.</p>
+    </div>
+
+    <div id="short-form" class="tab-content">
+      <h2>Short Form</h2>
+      <p>Content for Short Form...</p>
+    </div>
+
+    <div id="long-form" class="tab-content">
+      <h2>Long Form</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">Executive Summary <span class="accordion-icon">+</span></button>
+          <div class="accordion-content">
+            <p>Lorem ipsum dolor sit amet...</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Company Background <span class="accordion-icon">+</span></button>
+          <div class="accordion-content">
+            <p>Lorem ipsum dolor sit amet...</p>
+          </div>
+        </div>
+        <!-- Add other sections similarly -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+      const underline = document.querySelector(".tab-underline");
+
+      function updateUnderline() {
+        const activeButton = document.querySelector(".tab-button.active");
+        if (activeButton) {
+          underline.style.width = `${activeButton.offsetWidth}px`;
+          underline.style.left = `${activeButton.offsetLeft}px`;
+        }
+      }
+
+      tabButtons.forEach(button => {
+        button.addEventListener("click", function () {
+          tabButtons.forEach(btn => btn.classList.remove("active"));
+          tabContents.forEach(content => content.classList.remove("active"));
+          this.classList.add("active");
+          document.getElementById(this.getAttribute("data-target")).classList.add("active");
+          updateUnderline();
+        });
+      });
+
+      // Set underline position initially
+      updateUnderline();
+
+      // Accordion functionality
+      const accordionHeaders = document.querySelectorAll(".accordion-header");
+      accordionHeaders.forEach(header => {
+        header.addEventListener("click", function () {
+          this.classList.toggle("active");
+          const content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      });
+
+      window.addEventListener('resize', updateUnderline);
+    });
+  </script>
+</body>
+
+</html>
